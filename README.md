@@ -74,8 +74,8 @@ The docker image is publicly available on [DockerHub](https://hub.docker.com/r/g
 By default, the results are cached in memory for 24 hours.
 However, there's also support for the Cloudflare KV store. To use this, set the following environment variables:  
 ```
-Cloudflare:KVUrl = https://api.cloudflare.com/client/v4/accounts/ACCOUNTID/storage/kv/namespaces/NAMESPACEID
-Cloudflare:ApiToken = xxxx
+Cloudflare__KVUrl = https://api.cloudflare.com/client/v4/accounts/ACCOUNTID/storage/kv/namespaces/NAMESPACEID
+Cloudflare__ApiToken = xxxx
 ```
 
 If you want to run it with the default settings (in memory cache):
