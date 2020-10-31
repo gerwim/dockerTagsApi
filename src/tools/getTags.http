@@ -1,0 +1,4 @@
+GET http://localhost:5000/v1/tags
+registry: mcr.microsoft.com
+imageName: dotnet/framework/aspnet
+searchRegex: ^4\.8-windowsservercore-(\d{4}|ltsc\d{4})
