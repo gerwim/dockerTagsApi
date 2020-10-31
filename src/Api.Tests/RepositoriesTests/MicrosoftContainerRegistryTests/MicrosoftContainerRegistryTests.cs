@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Api.Repositories.MicrosoftContainerRegistry;
+using Api.Repositories.Registry.MicrosoftContainerRegistry;
 using Api.Repositories.Storage;
 using Moq;
 using Xunit;

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
@@ -9,7 +8,7 @@ using Api.Repositories.Storage;
 using Flurl;
 using Flurl.Http;
 
-namespace Api.Repositories.DockerHub
+namespace Api.Repositories.Registry.DockerHub
 {
     public class DockerHub : IRegistry
     {

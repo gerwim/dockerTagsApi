@@ -1,4 +1,4 @@
-﻿using Api.Repositories.DockerHub;
+﻿using Api.Repositories.Registry.DockerHub;
 using Xunit;
 
 namespace Api.Tests.RepositoriesTests.DockerHubTests

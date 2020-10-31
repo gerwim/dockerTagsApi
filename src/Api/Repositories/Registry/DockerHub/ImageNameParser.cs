@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Api.Repositories.DockerHub
+namespace Api.Repositories.Registry.DockerHub
 {
     public static class ImageNameParser
     {

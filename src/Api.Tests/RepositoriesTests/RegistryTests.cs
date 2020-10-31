@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Api.Repositories;
+using Api.Repositories.Registry;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
