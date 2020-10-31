@@ -31,7 +31,7 @@ curl 'https://api.gerwim.com/dockertags/v1/tags' \
 ```
 curl 'https://api.gerwim.com/dockertags/v1/tags' \
 --header 'registry: hub.docker.com' \
---header 'imageName: ubuntu'
+--header 'imageName: ubuntu' \
 --header 'searchRegex: ^18\.'
 ```
 returns
