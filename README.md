@@ -21,7 +21,7 @@ The API requires two headers:
 
 ## List all Ubuntu docker tags
 ```
-curl --location --request GET 'https://api.gerwim.com/dockertags/v1/tags' \
+curl 'https://api.gerwim.com/dockertags/v1/tags' \
 --header 'registry: hub.docker.com' \
 --header 'imageName: ubuntu'
 ```
@@ -29,21 +29,46 @@ curl --location --request GET 'https://api.gerwim.com/dockertags/v1/tags' \
 
 ### List Ubuntu tags starting with `18.`
 ```
-curl --location --request GET 'https://api.gerwim.com/dockertags/v1/tags' \
+curl 'https://api.gerwim.com/dockertags/v1/tags' \
 --header 'registry: hub.docker.com' \
 --header 'imageName: ubuntu'
 --header 'searchRegex: ^18\.'
 ```
+returns
+```JSON
+{
+    "name": "ubuntu",
+    "tags": [
+        "18.04",
+        "18.10"
+    ]
+}
+```
 
 ### List base ASP.NET 4.8 images on `windowsservercore`
 ```
-curl --location --request GET 'https://api.gerwim.com/dockertags/v1/tags' \
+curl 'https://api.gerwim.com/dockertags/v1/tags' \
 --header 'registry: mcr.microsoft.com' \
 --header 'imageName: dotnet/framework/aspnet' \
 --header 'searchRegex: ^4\.8-windowsservercore-(\d{4}|ltsc\d{4})'
 ```
+ returns
+```JSON
+{
+    "name": "dotnet/framework/aspnet",
+    "tags": [
+        "4.8-windowsservercore-1803",
+        "4.8-windowsservercore-1903",
+        "4.8-windowsservercore-1909",
+        "4.8-windowsservercore-2004",
+        "4.8-windowsservercore-2009",
+        "4.8-windowsservercore-ltsc2016",
+        "4.8-windowsservercore-ltsc2019"
+    ]
+}
+```
 
-# Running your instance
+# Running your private instance 
 The docker image is publicly available on [DockerHub](https://hub.docker.com/r/gerwim/dockertagsapi).
 
 By default, the results are cached in memory for 24 hours.
@@ -51,4 +76,9 @@ However, there's also support for the Cloudflare KV store. To use this, set the 
 ```
 Cloudflare:KVUrl = https://api.cloudflare.com/client/v4/accounts/ACCOUNTID/storage/kv/namespaces/NAMESPACEID
 Cloudflare:ApiToken = xxxx
+```
+
+If you want to run it with the default settings (in memory cache):
+```
+docker run -it --rm -P 80:80 gerwim/dockertagsapi:latest
 ```
