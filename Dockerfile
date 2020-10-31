@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 as builder
 
 RUN mkdir /app
-COPY / /app
+COPY /src /app
 WORKDIR /app/Api
 # Remove bin and obj folders if they exist
 RUN find -type d -name bin -prune -exec rm -rf {} \; && find -type d -name obj -prune -exec rm -rf {} \;
