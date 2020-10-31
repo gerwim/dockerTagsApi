@@ -80,5 +80,5 @@ Cloudflare__ApiToken = xxxx
 
 If you want to run it with the default settings (in memory cache):
 ```
-docker run -it --rm -P 80:80 gerwim/dockertagsapi:latest
+docker run -it --rm -p 80:80 gerwim/dockertagsapi:latest
 ```
