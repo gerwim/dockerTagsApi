@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Flurl.Http;
 using Microsoft.Extensions.Configuration;
@@ -9,10 +10,22 @@ namespace Api.Repositories.Storage.Implementations
     public class Cloudflare : BaseStorage
     {
         private readonly IConfiguration _configuration;
+        private readonly int _expirationTtl;
         
         public Cloudflare(IConfiguration configuration)
         {
             _configuration = configuration;
+
+            try
+            {
+                _expirationTtl = String.IsNullOrWhiteSpace(configuration["Cache:ExpirationTtl"])
+                    ? 86400
+                    : Convert.ToInt32(configuration["Cache:ExpirationTtl"]);
+            }
+            catch
+            {
+                _expirationTtl = 86400;
+            }
         }
         
         protected override async Task WriteImplementation<T>(string key, T value)
@@ -48,10 +61,10 @@ namespace Api.Repositories.Storage.Implementations
             return obj;
         }
         
-        private async Task WriteToCloudflare(string key, string value, int expirationTtl = 86400)
+        private async Task WriteToCloudflare(string key, string value)
         {
             await
-                $"{_configuration["Cloudflare:KVUrl"]}/values/{key}?expiration_ttl={expirationTtl.ToString()}"
+                $"{_configuration["Cloudflare:KVUrl"]}/values/{key}?expiration_ttl={_expirationTtl.ToString()}"
                     .WithOAuthBearerToken(_configuration["Cloudflare:ApiToken"])
                     .PutAsync(new StringContent(value));
         }

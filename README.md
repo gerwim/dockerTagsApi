@@ -71,7 +71,7 @@ curl 'https://api.gerwim.com/dockertags/v1/tags' \
 # Running your private instance 
 The docker image is publicly available on [DockerHub](https://hub.docker.com/r/gerwim/dockertagsapi).
 
-By default, the results are cached in memory for 24 hours.
+By default, the results are cached in memory for `86400` seconds (24 hours; to override, set the environment variable `Cache__ExpirationTtl` to a different value).
 However, there's also support for the Cloudflare KV store. To use this, set the following environment variables:  
 ```
 Cloudflare__KVUrl = https://api.cloudflare.com/client/v4/accounts/ACCOUNTID/storage/kv/namespaces/NAMESPACEID
