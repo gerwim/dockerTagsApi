@@ -15,7 +15,7 @@ namespace Api.Factories.Storage
             }
 
             // Default to an in memory cache
-            return new InMemoryCache();
+            return new InMemoryCache(configuration);
         }
     }
 }

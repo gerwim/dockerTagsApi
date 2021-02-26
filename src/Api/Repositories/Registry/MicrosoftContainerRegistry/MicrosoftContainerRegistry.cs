@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Api.Models;
 using Api.Repositories.Storage;
 using Flurl.Http;
 
-namespace Api.Repositories.MicrosoftContainerRegistry
+namespace Api.Repositories.Registry.MicrosoftContainerRegistry
 {
     public class MicrosoftContainerRegistry : IRegistry
     {

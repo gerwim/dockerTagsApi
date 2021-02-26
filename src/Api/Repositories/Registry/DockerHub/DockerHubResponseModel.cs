@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Api.Repositories.MicrosoftContainerRegistry
+namespace Api.Repositories.Registry.DockerHub
 {
-    public class McrResponseModel
+    public class DockerHubResponseModel
     {
         public string Name { get; set; }
         public List<string> Tags { get; set; }

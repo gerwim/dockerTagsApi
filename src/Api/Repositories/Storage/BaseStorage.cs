@@ -10,7 +10,7 @@ namespace Api.Repositories.Storage
             // Convert the key
             string encodedKey = $"{typeof(T)}-{key}".ComputeSha256Hash();
             
-            return this.WriteImplementation<T>(encodedKey, value);
+            return this.WriteImplementation(encodedKey, value);
         }
 
         public Task<T> Read<T>(string key)

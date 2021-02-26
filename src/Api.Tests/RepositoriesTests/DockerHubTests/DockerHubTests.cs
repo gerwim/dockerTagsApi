@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Api.Repositories.DockerHub;
+using Api.Repositories.Registry.DockerHub;
 using Api.Repositories.Storage;
 using Moq;
 using Xunit;

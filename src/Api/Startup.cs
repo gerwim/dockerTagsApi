@@ -1,7 +1,7 @@
 using Api.Factories.Storage;
-using Api.Repositories;
-using Api.Repositories.DockerHub;
-using Api.Repositories.MicrosoftContainerRegistry;
+using Api.Repositories.Registry;
+using Api.Repositories.Registry.DockerHub;
+using Api.Repositories.Registry.MicrosoftContainerRegistry;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
