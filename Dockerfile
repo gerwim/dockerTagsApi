@@ -11,7 +11,6 @@ RUN dotnet restore "Api/Api.csproj"
 COPY src .
 WORKDIR "/src/Api"
 RUN dotnet test ../Api.Tests
-RUN ls -altrF
 RUN dotnet build "Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
